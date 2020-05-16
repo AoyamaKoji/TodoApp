@@ -1,9 +1,9 @@
 @extends('layouts.helloapp')
 
-@section('title', 'Task.index')
+@section('title', 'category.index')
 @section('menubar')
   @parent
-  タスク・ページ
+	カテゴリー・ページ
 @endsection
 
 @section('content')
