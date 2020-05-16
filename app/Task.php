@@ -16,6 +16,11 @@ class Task extends Model
         'priority_number' => 'required',
       );
 
+      public function search(Request $request)
+      {
+          return view('task.find', $param);
+      }
+
       public function getData()
       {
            return $this->id . ': ' . $this->title;
