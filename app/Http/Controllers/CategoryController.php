@@ -6,9 +6,6 @@ use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-/*DBを利用*/
-use Illuminate\Support\Facades\DB;
-
 class CategoryController extends Controller
 {
 	/*Topページ*/
@@ -37,12 +34,15 @@ class CategoryController extends Controller
 	}
 	
 	/*項目削除*/
-	public function update(Request $request){
-		$category = Category::find($request->id);
-		return view('',[]);
+	public function delete(Request $request){
+		
+		$items = Category::all();
+		
+		return view('category.del', ['items' => $items]);
 	}
 	public function remove(Request $request){
-		Category::find($request->id)->delete();
+		$del = Category::find($request->radio)->first();
+		$del->delete();
 		return redirect('/category');
 	}
 
