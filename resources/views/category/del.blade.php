@@ -21,7 +21,7 @@
                 <tbody>
                     @foreach ($items as $item)
                         <tr>
-                            <td><input type="radio" name="radio" value="{{ $item->id }}"></td>
+                            <td><input type="radio" name="del[]" value="{{ $item->id }}"></td>
                             <td>{{ $item->name }}</td>
                         </tr>
                     @endforeach
