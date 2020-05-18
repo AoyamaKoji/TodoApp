@@ -23,35 +23,20 @@ class Task extends Model
       }
 
       // 指定したカテゴリを出力
-      // 時間順で出力させる
-      public function scopeCategory_idEqual($query, $n)
+      public function scopeCategoryIdEqual($query, $category_id)
       {
-          // 時間順に並べる
-          $items = DB::select('select * from task order by deadline asc');
-          return $query->where($items, $n);
+          $items = Task::where('category_id', $category_id)->get();
+          return $query->where($items, $category_id);
       }
 
-      // 優先度順に並べる
-      public function scopePriority_numberEqual($query, $n)
+      // 指定した期限のものを出力
+      public function scopeTimeSpan($query, $time)
       {
-          $items = DB::select('select * from task order by deadline desc');
-          return $query->where($items, $n);
+          // 期限―今で24時間以内のものを指定する
+          $items = Task::where('deadline'- 'now', '<' , $time)->get();
+          return $query->where($items, $time);
       }
 
-      // 期限が24時間以内モノだけ出力
-      // 期限が過ぎたものは出力させない
-      public function scopeTodayEqual($query, $n)
-      {
-          $items = DB::select('select * from task where deadline < datetime('now', '+33 hours' ) and deadline > datetime('now', '+9 hours') order by deadline asc');
-          return $query->where($items, $n);
-      }
 
-      // 期限が1週間以内モノだけ出力
-      // 期限が過ぎたものは出力させない
-      public function scopeWeekEqual($query, $n)
-      {
-          $items = DB::select('select * from task where deadline < datetime('now', '+7 days' , '+33 hours' ) and deadline > datetime('now', '+9 hours') order by deadline asc');
-          return $query->where($items, $n);
-      }
 
 }
