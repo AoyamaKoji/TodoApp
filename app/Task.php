@@ -25,8 +25,8 @@ class Task extends Model
       // 指定したカテゴリを出力
       public function scopeCategoryIdEqual($query, $category_id)
       {
-          $items = Task::where('category_id', $category_id)->get();
-          return $query->where($items, $category_id);
+          // $items = Task::where('category_id', $category_id)->get();
+          return $query->where('category_id', $category_id);
       }
 
       // 指定した期限のものを出力

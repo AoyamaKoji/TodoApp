@@ -8,16 +8,20 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     //ソートした表を表示
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
-        /* ここにスコープ利用のコード */
-        
-        //$sort = $request->sort;
-        // 未修正：if文してdatetimeかどうか判断
-        //$items = Task::orderBy($sort, 'asc');
-        //$param = ['items' => $items, 'sort' => $sort];
-        $items = Task::all();
-        return view('task.index', ['items' => $items]);
+       $sort = $request->sort;
+        // if文でdatetimeかどうか判断
+       
+        if($request->id == '3')
+        {
+          $items = Task::timeSpan((datetime)$id);
+        }
+        else{
+            $items = Task::categoryIdEqual((int)$id)->get();
+        }
+        $param = ['items' => $items, 'sort' => $sort, 'id' => gettype((int)$id)];
+        return view('task.index', $param);
     }
 
     

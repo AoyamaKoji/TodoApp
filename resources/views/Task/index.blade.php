@@ -8,6 +8,8 @@
 
 
 @section('content')
+<p>{{$id}}</p>
+
     <table>
     <tr>
         <th><a href="/task?sort=deadline">期限</a></th>
