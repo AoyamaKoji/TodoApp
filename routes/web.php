@@ -34,3 +34,7 @@ Route::post('category/add', 'CategoryController@create');
 /*項目を削除する時*/
 Route::get('category/del', 'CategoryController@delete');
 Route::post('category/del', 'CategoryController@remove');
+
+/*項目名を編集*/
+Route::get('category/edit', 'CategoryController@edit');
+Route::post('category/edit', 'CategoryController@update');
