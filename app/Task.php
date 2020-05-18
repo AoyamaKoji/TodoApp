@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Task extends Model
 {
-  protected $guarded = array('id');
+      protected $guarded = array('id');
 
       public static $rules = array(
         'category_id' => 'required',
@@ -17,7 +17,6 @@ class Task extends Model
         'priority_number' => 'required',
       );
 
-      // 必要な情報を出力する
       public function getData()
       {
            return $this->deadline . ': ' . $this->title . ': ' . $this->message . ': ' . $this->priority_number;

@@ -24,3 +24,13 @@ Route::get('task', 'TaskController@index');
 
 Route::get('task/add', 'TaskController@add');
 Route::post('task/add', 'TaskController@create');
+
+Route::get('category','CategoryController@index');
+
+/*項目を追加する時*/
+Route::get('category/add', 'CategoryController@add');
+Route::post('category/add', 'CategoryController@create');
+
+/*項目を削除する時*/
+Route::get('category/del', 'CategoryController@delete');
+Route::post('category/del', 'CategoryController@remove');
