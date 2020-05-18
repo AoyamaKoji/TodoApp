@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+<form>
    <table>
    <tr><th>項目一覧</th></tr>
    @foreach ($items as $item)
@@ -37,12 +38,7 @@
    <input type="button" name="edit" value="項目の名前変更" onClick="">
    
 --}}
-  
-   
-   
-   
    </form>
-   
 @endsection
 
 @section('footer')
