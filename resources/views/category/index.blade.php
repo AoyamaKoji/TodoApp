@@ -24,7 +24,7 @@
    
    </p>
    <p>
-	<input type="button" name="edit" value="項目の名前変更" onClick="#"
+	<input type="button" name="edit" value="項目の名前変更" onClick="#">
    </p>
    
 {{--
