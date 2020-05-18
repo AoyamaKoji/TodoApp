@@ -13,9 +13,10 @@ class TaskController extends Controller
         /* ここにスコープ利用のコード */
         
         $sort = $request->sort;
+        // 未修正：if文してdatetimeかどうか判断
         $items = Task::orderBy($sort, 'asc');
         $param = ['items' => $items, 'sort' = $sort];
-        return view('task.index', ['items' => $items]);
+        return view('task.index', $param);
     }
 
     
