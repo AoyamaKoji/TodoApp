@@ -12,11 +12,12 @@ class TaskController extends Controller
     {
         /* ここにスコープ利用のコード */
         
-        $sort = $request->sort;
+        //$sort = $request->sort;
         // 未修正：if文してdatetimeかどうか判断
-        $items = Task::orderBy($sort, 'asc');
-        $param = ['items' => $items, 'sort' = $sort];
-        return view('task.index', $param);
+        //$items = Task::orderBy($sort, 'asc');
+        //$param = ['items' => $items, 'sort' => $sort];
+        $items = Task::all();
+        return view('task.index', ['items' => $items]);
     }
 
     
@@ -31,7 +32,8 @@ class TaskController extends Controller
     
     public function edit(Request $request)
     {
-        
+        $task = Task::find($request->id);
+        return view('task.edit', ['form' => $task]);
     }
     
     public function update(Request $request)

@@ -37,6 +37,10 @@ class Task extends Model
           return $query->where($items, $time);
       }
 
+      public function id(){
+        return $this->id;
+      }
+
 
 
 }
