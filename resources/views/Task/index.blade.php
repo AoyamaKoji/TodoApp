@@ -29,6 +29,12 @@
         </tr>
     @endforeach
     </table>
+
+    {{-- {{$items->appends(['sort' => $sort])->links()}} --}}
+@endsection
+
+
+
     {{--
         {{$items->appends(['sort' => $sort])->links()}}
         --}}

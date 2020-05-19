@@ -30,5 +30,3 @@ Route::post('task/create', 'TaskController@create');
 Route::get('task/edit' ,'TaskController@edit');
 Route::post('task/edit', 'TaskController@update');
 Route::post('task/remove', 'TaskController@remove');
-
-

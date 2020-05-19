@@ -10,7 +10,14 @@ class TaskController extends Controller
     //ソートした表を表示
     public function index(Request $request, $id)
     {
-       $sort = $request->sort;
+        /* ここにスコープ利用のコード */
+
+        $sort = $request->sort;
+        // 未修正：if文してdatetimeかどうか判断
+        $items = Task::orderBy($sort, 'asc');
+        $param = ['items' => $items, 'sort' => $sort];
+       
+      $sort = $request->sort;
         // if文でdatetimeかどうか判断
        
         if($request->id == '3')
@@ -21,10 +28,11 @@ class TaskController extends Controller
             $items = Task::categoryIdEqual((int)$id)->get();
         }
         $param = ['items' => $items, 'sort' => $sort, 'id' => gettype((int)$id)];
+
         return view('task.index', $param);
     }
 
-    
+
     public function create(Request $request)
     {
         $this->validate($request, Task::$rules);
@@ -33,13 +41,15 @@ class TaskController extends Controller
         $task->fill($form)->save();
         return redirect('/task');
     }
-    
+
     public function edit(Request $request)
     {
+
         $task = Task::find($request->id);
         return view('task.edit', ['form' => $task]);
+
     }
-    
+
     public function update(Request $request)
     {
         $this->validate($request, Task::$rules);
@@ -49,7 +59,7 @@ class TaskController extends Controller
         $task->fill($form)->save();
         return redirect('/task');
     }
-    
+
     //チェックしたものを一斉削除
     public function remove(Request $request)
     {

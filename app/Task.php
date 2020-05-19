@@ -25,7 +25,7 @@ class Task extends Model
       // 指定したカテゴリを出力
       public function scopeCategoryIdEqual($query, $category_id)
       {
-          // $items = Task::where('category_id', $category_id)->get();
+
           return $query->where('category_id', $category_id);
       }
 
@@ -33,12 +33,7 @@ class Task extends Model
       public function scopeTimeSpan($query, $time)
       {
           // 期限―今で24時間以内のものを指定する
-          $items = Task::where('deadline'- 'now', '<' , $time)->get();
-          return $query->where($items, $time);
-      }
-
-      public function id(){
-        return $this->id;
+          return $query->where('deadline'- 'now', '<' , $time);
       }
 
 
