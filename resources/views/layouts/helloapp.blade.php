@@ -18,11 +18,11 @@
 	@section('navbar')
 	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 		<div class="navbar-nav">
-			<a class="nav-item nav-link active" href="">Todoアプリ</a>
-			<a class="nav-item nav-link" href="category/1">学業</a>
-			<a class="nav-item nav-link" href="category/2">バイト</a>
-			<a class="nav-item nav-link" href="category/3">遊び</a>
-			<a class="nav-item nav-link" href="category/4">その他</a>
+			<a type="button" class="nav-item nav-link active" onClick="location.href='/category'">Todoアプリ</a>
+			<a type="button" class="nav-item nav-link" onClick="location.href='/category/1'">学業</a>
+			<a type="button" class="nav-item nav-link" onClick="location.href='/category/2'">バイト</a>
+			<a type="button" class="nav-item nav-link" onClick="location.href='/category/3'">遊び</a>
+			<a type="button" class="nav-item nav-link" onClick="location.href='/category/4'">ノンカテゴリ</a>
 		</div>
 	</nav>
 

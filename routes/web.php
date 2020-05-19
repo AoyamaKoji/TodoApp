@@ -27,7 +27,7 @@ Route::get('category/del', 'CategoryController@delete');
 Route::post('category/del', 'CategoryController@remove');
 Route::get('category/{id}', 'TaskController@index');
 
-Route::get('category/{id}', 'TaskController@index');
+// Route::get('category/{id}', 'TaskController@index');
 
 
 /*項目名を編集*/
