@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use DateTime;
 
 class Task extends Model
 {
@@ -42,16 +43,18 @@ class Task extends Model
       /**
       * scopeTimeSpanの説明
       * @param string $query 第一引数
-      * 
+      *
       * @param datetime $time 第二引数
       * 指定の時間 etc(20:00:00)
-      * 
+      *
       *
       */
-      public function scopeTimeSpan($query, $time)
+      public function scopeDateSpan($query, $day)
       {
           // 期限―今で24時間以内のものを指定する
-          return $query->where('deadline'- 'now', '<' , $time);
+          $now = new DateTime ();
+          $new_date = $now->modify("+" . $day . " days");
+          return $query->where('deadline' , '<' , $new_date);
       }
 
 

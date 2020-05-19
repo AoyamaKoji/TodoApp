@@ -12,11 +12,11 @@
     <table>
     @csrf
     <tr>
-        <th><a href="/category/{cid}?sort=deadline">期限</a></th>
+        <th><a href="/category/{{$cid}}?sort=deadline">期限</a></th>
 {{-- 編集画面に移動したい --}}
         <th>ToDo</a></th>
         <th>詳細</th>
-        <th><a href="/category/{cid}?sort=priority_number">優先度</a></th>
+        <th><a href="/category/{{$cid}}?sort=priority_number">優先度</a></th>
         <th>category_id</th>
         <th></th>
     </tr>
@@ -37,7 +37,7 @@
     </form>
 
 
-{{-- {{$items->appends(['sort' => $sort])->links()}} --}}
+  {{--  {{$items->appends(['sort' => $sort])->links()}} --}}
 
 
     @if(count($errors) > 0)

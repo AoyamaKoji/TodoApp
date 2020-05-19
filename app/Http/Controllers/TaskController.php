@@ -7,18 +7,20 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+
     //ソートした表を表示
     public function index(Request $request, $id)
     {
 
         $cid = $id;
         $sort = $request->sort;
-        if(preg_match("/[^:]:[^:]:[^:]/", $cid))
+
+        if (array_key_exists($cid, config('date')))
         {
-            $items = Task::timeSpan((int)$cid)->orderBy($sort, 'asc')->get();
+            $items = Task::dateSpan(config('date')[$cid])->orderBy($sort, 'asc')->get();
         }
         else{
-            $items = Task::categoryIdEqual((int)$cid)->orderBy($sort, 'asc')->get();
+            $items = Task::categoryIdEqual((int)$cid)->orderBy($sort, 'desc')->get();
         }
 
         $param = ['items' => $items, 'sort' => $sort, 'cid' => $cid];
