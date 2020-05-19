@@ -15,17 +15,17 @@ class CategoriesTableSeeder extends Seeder
 			'name' => '学業',
 		];
 		DB::table('categories')->insert($param);
-		
+
 		$param = [
 			'name' => 'バイト',
 		];
 		DB::table('categories')->insert($param);
-		
+
 		$param = [
 			'name' => '遊び',
 		];
 		DB::table('categories')->insert($param);
-		
+
 		$param = [
 			'name' => 'ノンカテゴリ',
 		];

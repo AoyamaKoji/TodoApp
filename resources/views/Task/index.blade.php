@@ -31,6 +31,7 @@
         </tr>
     @endforeach
     </table>
+
     <input type="hidden" name="category_id" value="{{$cid}}">
     <input type="submit" value="complete">
     </form>
@@ -57,6 +58,7 @@
         <tr><th>priority_number: </th><td><input type="number" name="priority_number" value="{{old('priority_number')}}"></td></tr>
         <tr><th>deadline: </th><td><input type="datetime" name="deadline" value="{{old('deadline')}}"></td></tr>
         <tr><th></th><td><input type="submit" value="send"></td></tr>
+
 @endsection
 
 

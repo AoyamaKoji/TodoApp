@@ -10,6 +10,7 @@ class TaskController extends Controller
     //ソートした表を表示
     public function index(Request $request, $id)
     {
+
         $cid = $id;
         $sort = $request->sort;
         if(preg_match("/[^:]:[^:]:[^:]/", $cid))
@@ -19,11 +20,13 @@ class TaskController extends Controller
         else{
             $items = Task::categoryIdEqual((int)$cid)->orderBy($sort, 'asc')->get();
         }
+
         $param = ['items' => $items, 'sort' => $sort, 'cid' => $cid];
+
         return view('task.index', $param);
     }
 
-    
+
     public function create(Request $request)
     {
         $this->validate($request, Task::$rules);
@@ -33,13 +36,15 @@ class TaskController extends Controller
         $task->fill($form)->save();
         return redirect('/category/'. $request->category_id);
     }
-    
+
     public function edit(Request $request)
     {
+
         $task = Task::find($request->id);
         return view('task.edit', ['form' => $task]);
+
     }
-    
+
     public function update(Request $request)
     {
         $this->validate($request, Task::$rules);
@@ -49,7 +54,7 @@ class TaskController extends Controller
         $task->fill($form)->save();
         return redirect('/category/' . $request->category_id);
     }
-    
+
     //チェックしたものを一斉削除
     public function remove(Request $request)
     {
