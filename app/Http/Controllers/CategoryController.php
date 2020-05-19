@@ -13,7 +13,7 @@ class CategoryController extends Controller
     {
 		/*DB内にあるフィールド'name'を取得　表示*/
 		$items = Category::all();
-		
+
 		return view('category.index', ['items' => $items]);
 
     }
@@ -33,12 +33,12 @@ class CategoryController extends Controller
 		$category->fill($form)->save();
 		return redirect('/category');
 	}
-	
+
 	/*項目削除*/
 	public function delete(Request $request){
-		
+
 		$items = Category::all();
-		
+
 		return view('category.del', ['items' => $items]);
 	}
 	public function remove(Request $request){
@@ -53,22 +53,22 @@ class CategoryController extends Controller
 		$category = Category::find($request->id);
 		$form = $request->all();
 		unset($form['_token']);
-		unset($form['send']);
+//		unset($form['send']);
 		$category->fill($form)->save();
-		
+
 //		$category->fill($request->all())->save();
 
 //		$category->name = $request->name;
 //		$form = $request->all();
 //		unset($form['_token']);
 //		$category->save();
-		
-		
+
+
 		//$form = $request->all();
 		//unset($form['_token']);
 		//$category->fill($request->name)->save();
-		
-		
+
+
 		return redirect('/category');
 	}
 }
