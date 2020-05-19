@@ -9,9 +9,9 @@
 
 @section('content')
     <form action = "/task/remove" method="post">
-    <table>
+    <table class="table table-striped">
     @csrf
-    <tr>
+    <tr class="table-success">
         <th><a href="/category/{{$cid}}?sort=deadline">期限</a></th>
 {{-- 編集画面に移動したい --}}
         <th>ToDo</a></th>
@@ -49,15 +49,23 @@
         </ul>
     </div>
     @endif
+    <br>
+    <br>
     <form action="/task/create" method="post">
     <table>
         @csrf
         <tr><th></th><td><input type="hidden" name="category_id" value="{{$cid}}"</td></tr>
-        <tr><th>title: </th><td><input type="text" name="title" value="{{old('title')}}"></td></tr>
-        <tr><th>message: </th><td><input type="text" name="message" value="{{old('message')}}"></td></tr>
-        <tr><th>priority_number: </th><td><input type="number" name="priority_number" value="{{old('priority_number')}}"></td></tr>
-        <tr><th>deadline: </th><td><input type="datetime" name="deadline" value="{{old('deadline')}}"></td></tr>
-        <tr><th></th><td><input type="submit" value="send"></td></tr>
+        <tr><th><span class="badge badge-pill badge-secondary">title:</span> </th>
+          <td><input type="text" class="shadow" name="title" value="{{old('title')}}"></td></tr>
+        <tr><th><span class="badge badge-pill badge-secondary">message:</span> </th>
+          <td><input type="text" class="shadow" name="message" value="{{old('message')}}"></td></tr>
+        <tr><th><span class="badge badge-pill badge-secondary">priority_number:</span> </th>
+          <td><input type="number" class="shadow" name="priority_number" value="{{old('priority_number')}}"></td></tr>
+        <tr><th><span class="badge badge-pill badge-secondary">deadline:</span> </th>
+          <td><input type="datetime" class="shadow" name="deadline" value="{{old('deadline')}}"></td></tr>
+        <tr><th></th>
+          <td><input type="submit" class="shadow" value="send"></td></tr>
+    </table>
 
 @endsection
 

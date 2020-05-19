@@ -8,16 +8,18 @@
 
 @section('content')
 
-<table border="1" cellspacing="0" cellpadding="5" align="left">
-  <thead>
+<table class="table table-striped"  border="1" cellspacing="0" cellpadding="5" align="left">
+
+  <thead class="thead-dark">
       <tr>
         <th>項目一覧</th>
+        <th></th>
       </tr>
   </thead>
   <tbody>
      @foreach ($items as $item)
     <tr>
-				<td><input type="button" name="{{$item->name}}" value="{{$item->name}}" onClick="location.href='/category/{{$item->id}}'">
+				<td><input type="button" class="btn btn-info" name="{{$item->name}}" value="{{$item->name}}" onClick="location.href='/category/{{$item->id}}'">
 				    <br>
             <form action="/category/update", method="post">
                 @csrf
@@ -32,15 +34,35 @@
   </tbody>
 </table>
 
-   <p>
-   <input type="button" name="add" value="項目追加" onClick="location.href='/category/add'" >
-   </p>
-   <input type="button" name="del" value="項目の削除" onClick="location.href='/category/del'">
+<body>
 
-   <p>
-   <input type="button" name="today" value="今日" onClick="location.href='/category/today'">
-   <input type="button" name="week" value="一週間" onClick="location.href='/category/week'">
-   </p>
+  <input type="button" class="btn btn-primary" name="add" value="項目追加" onClick="location.href='/category/add'" autocomplete="off">
+
+  <input type="button" class="btn btn-primary" name="del" value="項目削除" onClick="location.href='/category/del'" autocomplete="off">
+
+  <br>
+  <br>
+
+  <input type="button" class="btn btn-danger" name="today" value="今日" onClick="location.href='/category/today'" autocomplete="off">
+
+  <input type="button" class="btn btn-danger" name="week" value="一週間" onClick="location.href='/category/week'" autocomplete="off">
+
+
+
+{{--
+  <p>
+  <input type="button" name="add" value="項目追加" onClick="location.href='/category/add'" >
+  </p>
+  <input type="button" name="del" value="項目の削除" onClick="location.href='/category/del'">
+
+  <p>
+  <input type="button" name="today" value="今日" onClick="location.href='/category/today'">
+  <input type="button" name="week" value="一週間" onClick="location.href='/category/week'">
+  </p>
+--}}
+</body>
+
+
 
 @endsection
 
