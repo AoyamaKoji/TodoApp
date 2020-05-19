@@ -17,10 +17,10 @@ class TaskController extends Controller
 
         if (array_key_exists($cid, config('date')))
         {
-            $items = Task::dateSpan(config('date')[$cid])->orderBy($sort, 'asc')->get();
+            $items = Task::dateSpan(config('date')[$cid])->orderBy($sort, config('sort')[$sort])->get();
         }
         else{
-            $items = Task::categoryIdEqual((int)$cid)->orderBy($sort, 'desc')->get();
+            $items = Task::categoryIdEqual((int)$cid)->orderBy($sort, config('sort')[$sort])->get();
         }
 
         $param = ['items' => $items, 'sort' => $sort, 'cid' => $cid];
