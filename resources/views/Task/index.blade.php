@@ -25,11 +25,9 @@
         </tr>
     @endforeach
     </table>
-    {{$items->appends(['sort' => $sort])->links()}}
+    {{-- {{$items->appends(['sort' => $sort])->links()}} --}}
 @endsection
 
-
-@endsection
 
 @section('footer')
 copyright 2020 tuyano.

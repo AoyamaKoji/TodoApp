@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TaskTableSeeder extends Seeder
+class TasksTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,7 +19,7 @@ class TaskTableSeeder extends Seeder
             'message' => 'むずい',
             'priority_number' => '2',
         ];
-        DB::table('task')->insert($param);
+        DB::table('tasks')->insert($param);
 
         $param = [
             'category_id' => 1,
@@ -28,7 +28,7 @@ class TaskTableSeeder extends Seeder
             'message' => 'なんとなく分かった',
             'priority_number' => '2',
         ];
-        DB::table('task')->insert($param);
+        DB::table('tasks')->insert($param);
 
         $param = [
             'category_id' => 1,
@@ -37,7 +37,7 @@ class TaskTableSeeder extends Seeder
             'message' => '今日と一週間！',
             'priority_number' => '3',
         ];
-        DB::table('task')->insert($param);
+        DB::table('tasks')->insert($param);
 
         $param = [
             'category_id' => 1,
@@ -46,7 +46,7 @@ class TaskTableSeeder extends Seeder
             'message' => '6-1をやるで。',
             'priority_number' => '3',
         ];
-        DB::table('task')->insert($param);
+        DB::table('tasks')->insert($param);
 
 
         // バイト
@@ -57,7 +57,7 @@ class TaskTableSeeder extends Seeder
             'message' => 'お客さん誰だっけ？',
             'priority_number' => '1',
         ];
-        DB::table('task')->insert($param);
+        DB::table('tasks')->insert($param);
 
         $param = [
             'category_id' => 2,
@@ -66,7 +66,7 @@ class TaskTableSeeder extends Seeder
             'message' => '目指せ1万円',
             'priority_number' => '3',
         ];
-        DB::table('task')->insert($param);
+        DB::table('tasks')->insert($param);
 
         $param = [
             'category_id' => 2,
@@ -75,7 +75,7 @@ class TaskTableSeeder extends Seeder
             'message' => '一日はきつい',
             'priority_number' => '2',
         ];
-        DB::table('task')->insert($param);
+        DB::table('tasks')->insert($param);
 
 
 
@@ -87,7 +87,7 @@ class TaskTableSeeder extends Seeder
             'message' => 'すき家',
             'priority_number' => '1',
         ];
-        DB::table('task')->insert($param);
+        DB::table('tasks')->insert($param);
 
         $param = [
             'category_id' => 3,
@@ -96,7 +96,7 @@ class TaskTableSeeder extends Seeder
             'message' => '100円！',
             'priority_number' => '3',
         ];
-        DB::table('task')->insert($param);
+        DB::table('tasks')->insert($param);
 
         $param = [
             'category_id' => 3,
@@ -105,7 +105,7 @@ class TaskTableSeeder extends Seeder
             'message' => '目指せアジ！',
             'priority_number' => '1',
         ];
-        DB::table('task')->insert($param);
+        DB::table('tasks')->insert($param);
 
     }
 }

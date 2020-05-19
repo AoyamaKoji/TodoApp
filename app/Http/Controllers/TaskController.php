@@ -11,15 +11,15 @@ class TaskController extends Controller
     public function index(Request $request)
     {
         /* ここにスコープ利用のコード */
-        
+
         $sort = $request->sort;
         // 未修正：if文してdatetimeかどうか判断
         $items = Task::orderBy($sort, 'asc');
-        $param = ['items' => $items, 'sort' = $sort];
+        $param = ['items' => $items, 'sort' => $sort];
         return view('task.index', $param);
     }
 
-    
+
     public function create(Request $request)
     {
         $this->validate($request, Task::$rules);
@@ -28,12 +28,12 @@ class TaskController extends Controller
         $task->fill($form)->save();
         return redirect('/task');
     }
-    
+
     public function edit(Request $request)
     {
-        
+
     }
-    
+
     public function update(Request $request)
     {
         $this->validate($request, Task::$rules);
@@ -43,7 +43,7 @@ class TaskController extends Controller
         $task->fill($form)->save();
         return redirect('/task');
     }
-    
+
     //チェックしたものを一斉削除
     public function remove(Request $request)
     {

@@ -19,16 +19,14 @@ Route::get('/', function () {
 });
 
 Route::get('category','CategoryController@index');
-Route::get('category/{id}', 'TaskController@index');
 Route::get('category/add', 'CategoryController@add');
 Route::post('category/add', 'CategoryController@create');
 Route::post('category/update', 'CategoryController@update');
 Route::get('category/del', 'CategoryController@delete');
 Route::post('category/del', 'CategoryController@remove');
+Route::get('category/{id}', 'TaskController@index');
 
 Route::post('task/create', 'TaskController@create');
 Route::get('task/edit' ,'TaskController@edit');
 Route::post('task/edit', 'TaskController@update');
 Route::post('task/remove', 'TaskController@remove');
-
-
