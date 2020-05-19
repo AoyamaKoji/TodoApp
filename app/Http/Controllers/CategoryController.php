@@ -12,7 +12,8 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
 		/*DB内にあるフィールド'name'を取得　表示*/
-		$items = Category::get();
+		$items = Category::all();
+		
 		return view('category.index', ['items' => $items]);
 
     }
@@ -20,7 +21,7 @@ class CategoryController extends Controller
 	/*項目追加*/
     public function add(Request $request)
     {
-		$items = Category::get();
+		$items = Category::all();
 		return view('category.add', ['items' => $items]);
 
     }
@@ -46,4 +47,28 @@ class CategoryController extends Controller
 		return redirect('/category');
 	}
 
+	/*項目名変更*/
+	public function update(Request $request){
+		$this->validate($request, Category::$rules);
+		$category = Category::find($request->id);
+		$form = $request->all();
+		unset($form['_token']);
+		unset($form['send']);
+		$category->fill($form)->save();
+		
+//		$category->fill($request->all())->save();
+
+//		$category->name = $request->name;
+//		$form = $request->all();
+//		unset($form['_token']);
+//		$category->save();
+		
+		
+		//$form = $request->all();
+		//unset($form['_token']);
+		//$category->fill($request->name)->save();
+		
+		
+		return redirect('/category');
+	}
 }

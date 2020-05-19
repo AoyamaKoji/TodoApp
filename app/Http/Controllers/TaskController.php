@@ -36,6 +36,7 @@ class TaskController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $task->fill($form)->save();
+
         return redirect('/category/'. $request->category_id);
     }
 
@@ -49,6 +50,7 @@ class TaskController extends Controller
 
     public function update(Request $request)
     {
+
         $this->validate($request, Task::$rules);
         $task = Task::find($request->id);
         $form = $request->all();
@@ -64,4 +66,5 @@ class TaskController extends Controller
         Task::destroy($request->complete);
         return redirect('/category/' . $request->category_id);
     }
+
 }
