@@ -25,6 +25,7 @@ class Task extends Model
       // 指定したカテゴリを出力
       public function scopeCategoryIdEqual($query, $category_id)
       {
+
           return $query->where('category_id', $category_id);
       }
 

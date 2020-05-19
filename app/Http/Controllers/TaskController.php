@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     //ソートした表を表示
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
         /* ここにスコープ利用のコード */
 
@@ -16,6 +16,19 @@ class TaskController extends Controller
         // 未修正：if文してdatetimeかどうか判断
         $items = Task::orderBy($sort, 'asc');
         $param = ['items' => $items, 'sort' => $sort];
+       
+      $sort = $request->sort;
+        // if文でdatetimeかどうか判断
+       
+        if($request->id == '3')
+        {
+          $items = Task::timeSpan((datetime)$id);
+        }
+        else{
+            $items = Task::categoryIdEqual((int)$id)->get();
+        }
+        $param = ['items' => $items, 'sort' => $sort, 'id' => gettype((int)$id)];
+
         return view('task.index', $param);
     }
 
@@ -31,6 +44,9 @@ class TaskController extends Controller
 
     public function edit(Request $request)
     {
+
+        $task = Task::find($request->id);
+        return view('task.edit', ['form' => $task]);
 
     }
 

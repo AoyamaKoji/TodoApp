@@ -20,6 +20,7 @@ class CreateTasksTable extends Migration
             $table->string('title');
             $table->string('message');
             $table->integer('priority_number');
+            $table->datetime('deadline');
             $table->timestamps();
 
         });

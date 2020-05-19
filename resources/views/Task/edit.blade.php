@@ -1,6 +1,6 @@
 @extends('layouts.helloapp')
 
-@section('title', 'Task.Add')
+@section('title', 'Task.edit')
 @section('menubar')
   @parent
   タスク編集ページ
@@ -20,13 +20,14 @@
     <table>
         @csrf
         <input type="hidden" name="id" value="{{$form->id}}">
-        <tr><th>deadline: </th><td><input type="timestamp" name="deadline" value="{{$form->name}}"</td></tr>
-        <tr><th>title: </th><td><input type="text" name="title" value="{{$form->title}}"</td></tr>
-        <tr><th>message: </th><td><input type="text" name="message" value="{{$form->message}}"</td></tr>
-        <tr><th>priority_number: </th><td><input type="number" name="priority_number" value="{{$form->priority_number}}"</td></tr>
+        <tr><th>title: </th><td><input type="text" name="title" value="{{$form->title}}"></td></tr>
+        <tr><th>message: </th><td><input type="text" name="message" value="{{$form->message}}"></td></tr>
+        <tr><th>priority_number: </th><td><input type="number" name="priority_number" value="{{$form->priority_number}}"></td></tr>
+        <tr><th>deadline: </th><td><input type="datetime" name="deadline" value="{{$form->deadline}}"></td></tr>
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
     </form>
+    
 @endsection
 
 @section('footer')
