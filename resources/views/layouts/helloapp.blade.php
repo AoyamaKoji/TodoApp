@@ -9,10 +9,13 @@
 		hr{margin:25px 100px; border-top:1px dashed #ddd;}
 		.content{margin:10px}
 
+
 		th{background-color:#999; color:#fff; padding:5px 10px;}
 		td{border:solod 1px #aaa; color:#999; padding:5px 10px;}
 	</style>	
+	<script type="text/javascript" src="js/category.js"></script>
 	<title>仮レイアウト</title>
+	
 </head>
 
 <body>	
@@ -20,6 +23,15 @@
 	@section('menubar')
 	<h2 class="menutitle">
 		※アプリ画面内
+	</style>	
+	<title>仮トップページ</title>
+</head>
+
+<body>
+	<h1>@yield('title')</h1>
+	@section('menubar')
+	<h2 class="menutitle">
+		※メニュー
 	</h2>
 	<ul>
 		<li>@show</li>

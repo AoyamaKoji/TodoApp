@@ -6,15 +6,29 @@
   タスク・ページ
 @endsection
 
+
 @section('content')
-   <table>
-   <tr><th>Data</th></tr>
-   @foreach ($items as $item)
-      <tr>
-           <td>{{$item->getData()}}</td>
-      </tr>
-   @endforeach
-   </table>
+    <table>
+    <tr>
+        <th><a href="/task?sort=deadline">期限</a></th>
+        //編集画面に移動したい
+        <th><a href="/task/edit">ToDo</a></th>
+        <th>詳細</th>
+        <th><a href="/task?sort=priority">優先度</a></th>
+    </tr>
+    @foreach ($items as $item)
+        <tr>
+            <td>{{$item->deadline}}</td>
+            <td>{{$item->title}}</td>
+            <td>{{$item->message}}</td>
+            <td>{{$item->priority_number}}</td>
+        </tr>
+    @endforeach
+    </table>
+    {{$items->appends(['sort' => $sort])->links()}}
+@endsection
+
+
 @endsection
 
 @section('footer')
