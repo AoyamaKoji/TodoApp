@@ -20,6 +20,7 @@
     <table>
         @csrf
         <input type="hidden" name="id" value="{{$form->id}}">
+        <tr><th></th><td><input type="hidden" name="category_id" value="{{$form->category_id}}"</td></tr>
         <tr><th>title: </th><td><input type="text" name="title" value="{{$form->title}}"></td></tr>
         <tr><th>message: </th><td><input type="text" name="message" value="{{$form->message}}"></td></tr>
         <tr><th>priority_number: </th><td><input type="number" name="priority_number" value="{{$form->priority_number}}"></td></tr>
