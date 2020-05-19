@@ -10,17 +10,16 @@ class TaskController extends Controller
     //ソートした表を表示
     public function index(Request $request, $id)
     {
-       $sort = $request->sort;
-        // if文でdatetimeかどうか判断
-       
-        if($request->id == '3')
+        $cid = $id;
+        $sort = $request->sort;
+        if(preg_match("/[^:]:[^:]:[^:]/", $cid))
         {
-          $items = Task::timeSpan((datetime)$id);
+            $items = Task::timeSpan((int)$cid)->orderBy($sort, 'asc')->get();
         }
         else{
-            $items = Task::categoryIdEqual((int)$id)->get();
+            $items = Task::categoryIdEqual((int)$cid)->orderBy($sort, 'asc')->get();
         }
-        $param = ['items' => $items, 'sort' => $sort, 'id' => gettype((int)$id)];
+        $param = ['items' => $items, 'sort' => $sort, 'cid' => $cid];
         return view('task.index', $param);
     }
 
@@ -29,9 +28,10 @@ class TaskController extends Controller
     {
         $this->validate($request, Task::$rules);
         $task = new Task;
+        $form = $request->all();
         unset($form['_token']);
         $task->fill($form)->save();
-        return redirect('/task');
+        return redirect('/category/'. $request->category_id);
     }
     
     public function edit(Request $request)
@@ -47,14 +47,14 @@ class TaskController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $task->fill($form)->save();
-        return redirect('/task');
+        return redirect('/category/' . $request->category_id);
     }
     
     //チェックしたものを一斉削除
     public function remove(Request $request)
     {
         //completeは配列
-        $destroy = Task::destroy(Input::get('complete'));
-        return redirect('/task');
+        Task::destroy($request->complete);
+        return redirect('/category/' . $request->category_id);
     }
 }
