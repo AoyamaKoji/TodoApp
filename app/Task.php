@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use DateTime;
 
 class Task extends Model
 {
@@ -23,18 +24,37 @@ class Task extends Model
       }
 
       // 指定したカテゴリを出力
+      /**
+      * scopeCategoryIDの説明
+      * @param string $query 第一引数
+      * whereで取得される値と同じ
+      *
+      * @param integer $category_id 第二引数
+      * カテゴリ番号の値
+      *
+      */
       public function scopeCategoryIdEqual($query, $category_id)
       {
-          $items = Task::where('category_id', $category_id)->get();
-          return $query->where($items, $category_id);
+
+          return $query->where('category_id', $category_id);
       }
 
       // 指定した期限のものを出力
-      public function scopeTimeSpan($query, $time)
+      /**
+      * scopeTimeSpanの説明
+      * @param string $query 第一引数
+      *
+      * @param datetime $time 第二引数
+      * 指定の時間 etc(20:00:00)
+      *
+      *
+      */
+      public function scopeDateSpan($query, $day)
       {
           // 期限―今で24時間以内のものを指定する
-          $items = Task::where('deadline'- 'now', '<' , $time)->get();
-          return $query->where($items, $time);
+          $now = new DateTime ();
+          $new_date = $now->modify("+" . $day . " days");
+          return $query->where('deadline' , '<' , $new_date);
       }
 
 
