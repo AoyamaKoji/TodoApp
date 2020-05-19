@@ -37,8 +37,6 @@
     </form>
 
 
-  {{--  {{$items->appends(['sort' => $sort])->links()}} --}}
-
 
     @if(count($errors) > 0)
     <div>
