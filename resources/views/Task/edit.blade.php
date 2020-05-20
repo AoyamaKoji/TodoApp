@@ -16,6 +16,7 @@
         </ul>
     </div>
     @endif
+    <a href="/category/{{$form->category_id}}">戻る</a>
     <form action="/task/edit" method="post">
     <table>
         @csrf

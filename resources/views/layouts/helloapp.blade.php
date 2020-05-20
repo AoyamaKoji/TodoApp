@@ -4,7 +4,8 @@
 	<style>
 		.footer{color:gray; opacity:0.7; color:#ccc; text-align:right; font-size:10px; margin:10px;}
 		body{font-size:20px; color:#999; margin:5px;}
-
+		.content{margin:0px 65px; text-align:center;}
+		
 	</style>
 	<script type="text/javascript" src="js/category.js"></script>
 	<title>仮レイアウト</title>
@@ -19,10 +20,6 @@
 	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 		<div class="navbar-nav">
 			<a type="button" class="nav-item nav-link active" onClick="location.href='/category'">Todoアプリ</a>
-			<a type="button" class="nav-item nav-link" onClick="location.href='/category/1'">学業</a>
-			<a type="button" class="nav-item nav-link" onClick="location.href='/category/2'">バイト</a>
-			<a type="button" class="nav-item nav-link" onClick="location.href='/category/3'">遊び</a>
-			<a type="button" class="nav-item nav-link" onClick="location.href='/category/4'">ノンカテゴリ</a>
 		</div>
 	</nav>
 
