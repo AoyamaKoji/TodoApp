@@ -15,7 +15,6 @@
           <th></th>
         </tr>
    </thead>
-{{--   <tr><th>項目一覧</th></tr>    --}}
    @foreach ($items as $item)
 
     <tr>
