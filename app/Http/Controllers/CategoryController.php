@@ -42,8 +42,9 @@ class CategoryController extends Controller
 		return view('category.del', ['items' => $items]);
 	}
 	public function remove(Request $request){
-		$del = Category::find($request->del)->first();
-		$del->delete();
+		// $del = Category::find($request->del)->first();
+		// $del->delete();
+    Category::destroy($request->del);
 		return redirect('/category');
 	}
 
